@@ -1,19 +1,15 @@
-const myVariable = 'Mathematics and Phisics'
+// Numbers
 
-console.log(myVariable.length)
-console.log(1 + myVariable.charAt(15) + 2)
+// An integer is a whole number.
+const myNumber = 88;
 
-console.log(myVariable.indexOf('ath'))
+// A number with a decimal point is a float which references the "floating point" 
+const myFloatingNumber = 88.01
 
-console.log(myVariable.lastIndexOf('ic'))
+const stringNumber = "88"
 
-console.log(myVariable.slice(3, 8))
-
-console.log(myVariable.toUpperCase())
-
-console.log(myVariable.toLowerCase())
-
-console.log(myVariable)
-console.log(myVariable.includes('H'))
-
-console.log(myVariable.split(" "))
+console.log(myNumber)
+console.log(myFloatingNumber)
+console.log(stringNumber)
+console.log(stringNumber + 10)
+console.log(Number(stringNumber) + 10)
