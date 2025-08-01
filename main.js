@@ -1,15 +1,19 @@
-// Numbers
+// Code challenge
 
-// An integer is a whole number.
-const myNumber = 88;
+// let myName = "Dilmurodbukharov";
+// let nameLength = myName.length;
+// let maxRandomNumber = nameLength - 1;
+// let randomNumber = Math.floor(Math.random() * nameLength);
+// let randomLetter = myName.charAt(randomNumber)
+// console.log(randomNumber)
+// console.log(randomLetter)
 
-// A number with a decimal point is a float which references the "floating point" 
-const myFloatingNumber = 88.01
+let playerOne = 'paper';
+let playerTwo = 'rock';
 
-const stringNumber = "88"
-
-console.log(myNumber)
-console.log(myFloatingNumber)
-console.log(stringNumber)
-console.log(stringNumber + 10)
-console.log(Number(stringNumber) + 10)
+const result = playerOne === playerTwo 
+? 'It is a tie!' : playerOne === 'paper' && playerTwo === 'scissors' 
+? 'PlayerTwo wins!' : playerOne === 'scissors' && playerTwo === 'rock' 
+? 'PlayerTwo wins!' : playerOne === 'rock' && playerTwo === 'paper' 
+? 'PlayerTwo wins!' : 'PlayerOne wins!';
+console.log(result)
