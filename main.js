@@ -1,47 +1,60 @@
-// Functions
+// Scope
+// var, let, const
 
-// Methods = Built-in Functions!
-let userName = "Dilmurod";
-userName.toLowerCase() // Built-in function - Method
-Math.random() // Built-in function - method
+// var - function scoped!!!
+// let and const - block scoped!!!
 
-// Function Declaration Syntax:
+// Legasy code uses var
+var x = 1;
+var x = 2;
 
-function sum() {
-    return 2 + 2;
-};
+let y = 3;
+// let y = 4; Can not declare same variable twice using let
+y = 4; // You can reassign the value of the variable declared using let
 
-console.log(sum());
+const z = 5;
+// z = 10; You can not reassign value of the variable which was declared using const -> const = constant
+// console.log(z);
+// console.log(x);
+// console.log(y);
 
-function sumNum(num1, num2) {
-    if (num2 === undefined) {
-        return num1 + num1;
+
+// Global Scope
+var a = 15;
+let b = 20;
+const c = 25;
+
+// Local Scope - there are two type of local scope - Block and Function
+
+// Black Scope
+{
+    let b = 10;
+    console.log(b)
+}
+
+// Function Scope (We can put Block inside of a function and function inside of a function)
+
+function myFunc() {
+    const d = 50;
+    
+    {
+        let c = 100;
+        console.log(d);
     }
-    return num1 + num2;
-};
-
-console.log(sumNum(3));
-
-function getUserNameFromEmail (email) {
-    return email.slice(0, email.indexOf("@"))
+    console.log(c)
 }
 
-console.log(getUserNameFromEmail("userName@yahoo.com"))
+myFunc();
+// console.log(b);
+// console.log(c);
 
-// Anonymus Functions
-const multiplyNumbers = function (a, b, c) {
-    return a * b * c;
+// Examples of Block code
+let one = 2;
+let two = 2;
+if (one === two) {
+    one + two;
 }
 
-console.log(multiplyNumbers(2, 3, 4))
-
-// Arrow functions
-const subtractNumbers = (x, z) => {
-    return x - z;
+for (let i = 0; i < 10; i++) {
+    console.log(i)
 }
-console.log(subtractNumbers(10, 5))
-
-const toProperCase = (userName) => {
-    return userName.charAt(0).toUpperCase() + userName.slice(1).toLowerCase();
-};
-console.log(toProperCase("dilmurOD"))
