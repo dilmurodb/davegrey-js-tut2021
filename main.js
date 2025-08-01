@@ -1,19 +1,15 @@
-// Code challenge
+// User input
 
-// let myName = "Dilmurodbukharov";
-// let nameLength = myName.length;
-// let maxRandomNumber = nameLength - 1;
-// let randomNumber = Math.floor(Math.random() * nameLength);
-// let randomLetter = myName.charAt(randomNumber)
-// console.log(randomNumber)
-// console.log(randomLetter)
+// alert("Hello World!");
 
-let playerOne = 'paper';
-let playerTwo = 'rock';
+// let myBoolean = confirm("Ok === True\nCancel === False");
+// console.log(myBoolean);
 
-const result = playerOne === playerTwo 
-? 'It is a tie!' : playerOne === 'paper' && playerTwo === 'scissors' 
-? 'PlayerTwo wins!' : playerOne === 'scissors' && playerTwo === 'rock' 
-? 'PlayerTwo wins!' : playerOne === 'rock' && playerTwo === 'paper' 
-? 'PlayerTwo wins!' : 'PlayerOne wins!';
-console.log(result)
+let userName = prompt("Please enter your name");
+if (userName) {
+    console.log(userName.length);
+    console.log(userName.trim().length)
+    console.log(userName.trim());
+} else {
+    console.log("You didn't enter your name!");
+};
