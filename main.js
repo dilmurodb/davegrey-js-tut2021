@@ -1,60 +1,99 @@
-// Scope
-// var, let, const
+// Arrays
 
-// var - function scoped!!!
-// let and const - block scoped!!!
+const myArray = [];
 
-// Legasy code uses var
-var x = 1;
-var x = 2;
+// Add an elements to an array:
+myArray[0] = "Dilmurod";
+myArray[1] = 1001;
+myArray[2] = true;
 
-let y = 3;
-// let y = 4; Can not declare same variable twice using let
-y = 4; // You can reassign the value of the variable declared using let
+// Refer to an array:
+console.log(myArray);
 
-const z = 5;
-// z = 10; You can not reassign value of the variable which was declared using const -> const = constant
-// console.log(z);
-// console.log(x);
-// console.log(y);
+// Length property:
+console.log(myArray.length)
 
+// Last element in an array:
+console.log(myArray[myArray.length - 1]);
 
-// Global Scope
-var a = 15;
-let b = 20;
-const c = 25;
+// An element in an array by index number:
+console.log(myArray[1]);
 
-// Local Scope - there are two type of local scope - Block and Function
+// Add an element to the end of an array:
+myArray.push("school")
+console.log(myArray);
 
-// Black Scope
-{
-    let b = 10;
-    console.log(b)
-}
+// Delete an element from the end of an array:
+const lastItem = myArray.pop();
+console.log(myArray);
+console.log(lastItem);
 
-// Function Scope (We can put Block inside of a function and function inside of a function)
+// Add an element to the beginning of an array:
+myArray.unshift(77);
+console.log(myArray);
 
-function myFunc() {
-    const d = 50;
-    
-    {
-        let c = 100;
-        console.log(d);
-    }
-    console.log(c)
-}
+// Delete an element from the beginning of an array:
+const firstItem = myArray.shift();
+console.log(myArray);
+console.log(firstItem);
 
-myFunc();
-// console.log(b);
-// console.log(c);
+let newArray = ["Dilmurod", 77, true];
 
-// Examples of Block code
-let one = 2;
-let two = 2;
-if (one === two) {
-    one + two;
-}
+// Delete element from array at any position - this method not recommended
 
-for (let i = 0; i < 10; i++) {
-    console.log(i)
-}
+// delete newArray[2];
+// console.log(newArray);
+// console.log(newArray[2]);
+
+// Delete element from array at any position
+
+// newArray.splice(1, 1);
+// console.log(newArray);
+
+// Delete element and replace with other element
+
+// newArray.splice(0, 1, "Bukharov");
+// console.log(newArray);
+
+// splice() method also adds an element to an array
+
+newArray.splice(1, 0, 88);
+console.log(newArray);
+
+// slice() method
+
+let lettersArray = ["A", "B", "C", "D", "E", "F"];
+// let slicedArray = lettersArray.slice(2);
+// let slicedArray = lettersArray.slice(2, 5);
+// console.log(slicedArray);
+
+// reverse() method
+
+// let reversedArray = lettersArray.reverse();
+// console.log(reversedArray);
+
+// join() method
+
+// let joinedArray = lettersArray.join();
+// console.log(joinedArray);
+
+// concat() method
+
+let arrayA = [1, 2, 3, 4];
+let arrayB = [5, 6, 7, 8];
+// let numbersArray = arrayA.concat(arrayB);
+// console.log(numbersArray);
+
+// spread operator (...)
+
+let numbersArray = [...arrayA, ...arrayB];
+console.log(numbersArray);
+
+// Nested arrays
+
+let nestedArrayOne = ['Bread', 'Water', 'Butter'];
+let nestedArrayTwo = [['Apples', 'Cashews'], nestedArrayOne];
+let nestedArrayThree = [nestedArrayTwo, ['Detergent', 'Soap']];
+
+let nestedArray = [nestedArrayThree, ['Shampoo', 'Shave gel', 'Body wash']];
+console.log(nestedArray[0][0][0][1]);
