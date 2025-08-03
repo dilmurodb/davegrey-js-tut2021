@@ -1,99 +1,83 @@
-// Arrays
+// Objects
+// Key - value pairs in curly braces
 
-const myArray = [];
+const myObj = { userName: "Dilmurod"}
+console.log(myObj)
+console.log(myObj.userName)
 
-// Add an elements to an array:
-myArray[0] = "Dilmurod";
-myArray[1] = 1001;
-myArray[2] = true;
+const anotherObject = {
+    alive: true,
+    answer: 42,
+    hobbies: ["Eat", "Sleep", "Code"],
+    beverage: {
+        morning: "Coffee",
+        afternoon: "Iced Tea"
+    },
+    action: function() {
+        return `Time for ${this.beverage.morning}`
+    }
+}
+console.log(anotherObject["beverage"]["afternoon"])
+console.log(anotherObject.action())
 
-// Refer to an array:
-console.log(myArray);
+const vehicle = {
+    wheels: 4,
+    engine: function() {
+        return "Vrooooom!"
+    }
+}
 
-// Length property:
-console.log(myArray.length)
+// Inheritence
+const truck = Object.create(vehicle);
+truck.doors = 2;
+console.log(truck);
+console.log(truck.wheels);
+console.log(truck.engine());
 
-// Last element in an array:
-console.log(myArray[myArray.length - 1]);
+const car = Object.create(vehicle);
+car.engine = function() { return "Whoooosh!"};
+car.doors = 4;
+console.log(car);
+console.log(car.wheels);
+console.log(car.engine());
+console.log(car.doors); 
 
-// An element in an array by index number:
-console.log(myArray[1]);
+const tesla = Object.create(car);
+console.log(tesla.wheels)
+console.log(tesla.engine())
+tesla.engine = function() {
+    return "Shhhhhh..."
+};
+console.log(tesla.engine());
 
-// Add an element to the end of an array:
-myArray.push("school")
-console.log(myArray);
 
-// Delete an element from the end of an array:
-const lastItem = myArray.pop();
-console.log(myArray);
-console.log(lastItem);
+const band = {
+    vocals: "Robert Plant",
+    guitar: "Jimmy Page",
+    bass: "John Paul Jones",
+    drums: "John Bonham"
+};
+console.log(Object.keys(band));
+console.log(Object.values(band));
 
-// Add an element to the beginning of an array:
-myArray.unshift(77);
-console.log(myArray);
+for (let job in band) {
+    // console.log(band[job])
+    console.log(`On ${job}, it's ${band[job]}`)
+}
 
-// Delete an element from the beginning of an array:
-const firstItem = myArray.shift();
-console.log(myArray);
-console.log(firstItem);
+// Destucturing objects
 
-let newArray = ["Dilmurod", 77, true];
+// const { guitar: myVariable, bass : myBass } = band;
+// console.log(myVariable);
+// console.log(myBass);
 
-// Delete element from array at any position - this method not recommended
+const { vocals, guitar, bass, drums } = band;
+console.log(vocals);
+console.log(guitar);
+console.log(bass);
+console.log(drums);
 
-// delete newArray[2];
-// console.log(newArray);
-// console.log(newArray[2]);
-
-// Delete element from array at any position
-
-// newArray.splice(1, 1);
-// console.log(newArray);
-
-// Delete element and replace with other element
-
-// newArray.splice(0, 1, "Bukharov");
-// console.log(newArray);
-
-// splice() method also adds an element to an array
-
-newArray.splice(1, 0, 88);
-console.log(newArray);
-
-// slice() method
-
-let lettersArray = ["A", "B", "C", "D", "E", "F"];
-// let slicedArray = lettersArray.slice(2);
-// let slicedArray = lettersArray.slice(2, 5);
-// console.log(slicedArray);
-
-// reverse() method
-
-// let reversedArray = lettersArray.reverse();
-// console.log(reversedArray);
-
-// join() method
-
-// let joinedArray = lettersArray.join();
-// console.log(joinedArray);
-
-// concat() method
-
-let arrayA = [1, 2, 3, 4];
-let arrayB = [5, 6, 7, 8];
-// let numbersArray = arrayA.concat(arrayB);
-// console.log(numbersArray);
-
-// spread operator (...)
-
-let numbersArray = [...arrayA, ...arrayB];
-console.log(numbersArray);
-
-// Nested arrays
-
-let nestedArrayOne = ['Bread', 'Water', 'Butter'];
-let nestedArrayTwo = [['Apples', 'Cashews'], nestedArrayOne];
-let nestedArrayThree = [nestedArrayTwo, ['Detergent', 'Soap']];
-
-let nestedArray = [nestedArrayThree, ['Shampoo', 'Shave gel', 'Body wash']];
-console.log(nestedArray[0][0][0][1]);
+function sings({vocals}) {
+    return `${vocals} sings!`
+}
+console.log(sings(band));
