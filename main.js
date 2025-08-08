@@ -1,26 +1,64 @@
-// JSON JavaScript Object Notation
-// JSON is used to send and receive data.
-// JSON is a text format that is completely language independent.
-// Meaning JSON is used to send and receive data in many languages
-// ... not just in JavaScript
+// JavaScript Errors and Error Handling
+"use strict"
 
-const myObj = {
-    name: "Dilmurod",
-    hobbies: ["eat", "sleep", "code"],
-    hello: function () {
-        console.log("Hello!")
+// This creates a ReferenceError: 
+// variable = "Dilmurod";
+// console.log(variable);
+
+// This creates a SyntaxError
+// Object..create()
+
+// This creates TypeError
+// const userName = "Andrew";
+// userName = "Annah";
+
+const makeError = () => {
+    try {
+        // const userName = "Andrew"
+        // userName = "Brandon"
+
+        // This is customError
+        // throw new customError("This is a custom error!");
+
+        // This is genericError
+        throw new Error("This is an error!");
+
+    } catch (err) {
+        console.error(err.name);
+        console.error(err.message);
+        console.error(err.stack)
+    } finally {
+        console.log("...finally!")
     }
 }
-console.log(myObj);
-console.log(myObj.name);
-console.log(myObj.hobbies);
-myObj.hello();
-console.log(typeof myObj);
-const sendJSON = JSON.stringify(myObj);
-console.log(sendJSON);
-console.log(typeof sendJSON);
-console.log(sendJSON.name);
+makeError();
 
-const receiveJSON = JSON.parse(sendJSON);
-console.log(receiveJSON);
-console.log(typeof receiveJSON);
+
+// CustomError function
+// function customError(message) {
+//     this.message = message;
+//     this.name = "customeError";
+//     this.stack = `${this.name}: ${this.message}`;
+// }
+
+
+// Let's understand how try catch block works
+
+const createError = () => {
+    let i = 1;
+    while (i <= 5) {
+        try {
+            if ( i % 2 !== 0) {
+                throw new Error("Odd number!")
+            }
+            console.log("Even number!")
+        } catch (err) {
+            console.error(err.message)
+        } finally {
+            console.log("...finally!")
+            i++;
+        }
+    }
+}
+
+createError();
